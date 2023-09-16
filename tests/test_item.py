@@ -9,10 +9,12 @@ def item():
     item2 = Item("Ноутбук", 20000, 5)
     return item1, item2
 
+
 def test_calculate_total_price(item):
     a, b = item
     assert a.calculate_total_price() == 200000
     assert b.calculate_total_price() == 100000
+
 
 def test_apply_discount(item):
     a, b = item
@@ -21,3 +23,12 @@ def test_apply_discount(item):
     b.apply_discount()
     assert a.price == 5000
     assert b.price == 10000
+
+
+def test_string_to_number():
+    assert Item.string_to_number('2') == 2
+
+
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv('../src/items.csv')
+    assert len(Item.all) == 5
