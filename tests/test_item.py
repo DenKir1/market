@@ -32,3 +32,15 @@ def test_string_to_number():
 def test_instantiate_from_csv():
     Item.instantiate_from_csv('../src/items.csv')
     assert len(Item.all) == 5
+
+
+def test_repr(item):
+    a, b = item
+    assert repr(a) == "Item('Смартфон', 10000, 20)"
+    assert repr(b) == "Item('Ноутбук', 20000, 5)"
+
+
+def test_str(item):
+    a, b = item
+    assert str(a) == 'Смартфон'
+    assert str(b) == 'Ноутбук'
