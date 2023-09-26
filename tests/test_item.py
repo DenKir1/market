@@ -44,3 +44,12 @@ def test_str(item):
     a, b = item
     assert str(a) == 'Смартфон'
     assert str(b) == 'Ноутбук'
+
+
+def test_add(item):
+    a, b = item
+    assert a + b == 25
+    try:
+        assert a + 2
+    except ValueError:
+        print('to be some type')
